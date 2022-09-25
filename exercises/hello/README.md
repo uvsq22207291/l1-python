@@ -9,3 +9,4 @@
 1. Exécutez le programme
     1. dans l'IDE
     1. dans le terminal
+kconda activate l1-pythonkconda activate l1-pythonkconda activate l1-pythonkkkconda activate l1-pythonconda activate l1-pythonk
