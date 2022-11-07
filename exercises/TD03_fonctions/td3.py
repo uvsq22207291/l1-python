@@ -57,3 +57,19 @@ def proportionTemps(temps,proportion) :
   return secondeenTemps ((TempsenSeconde(temps)*proportion))
 afficheTemps (proportionTemps((2,0,36,0),0,2))
 afficheTemps (proportionTemps(proportion = 0,2, temps = (2,0,36,0)))
+
+import time
+def tempsEnDate(temps):
+    a = 1970 + temps[0] // 365 # pour avoir les années
+    j = 1 + temps[0] % 365 # pour avoir le reste (jour)
+    return (a, j, temps[1], temps[2], temps[3])
+
+def afficheDate(date = -1):
+    if len (date) == 0 :
+      date = tempsEnDate(secondeEnTemps(int(time.time())))
+    print ("jour numero", date[1], "de l'année", date[0], "à", str(date[2]) + ":" + str(date[3]) + ":" + str(date[4]))
+
+temps = secondeEnTemps(1000000000)
+afficheTemps(temps)
+afficheDate(tempsEnDate(temps))
+afficheDate()
