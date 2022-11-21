@@ -19,8 +19,17 @@ print(nombres[4:8])
 print(nombres[8:12])
 print(nombres[12:16])
 #OU
-carre_mag = [[4,14,15,1,9,7,6,12][5,11,10,8,16,2,3,13]]
-print carre_mag
+carre_mag = [
+    [4,14,15,1],
+    [9,7,6,12],
+    [5,11,10,8],
+    [16,2,3,13]
+]
+
+for i in range (len(carre_mag)) :
+    for j in range (len(carre_mag[i])) :
+        print (carre_mag[i][j], end= " ")
+    print ()
 
 #Question 3
 carre_pas_mag = [[0] * 4 for i in range(4)]
