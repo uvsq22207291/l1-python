@@ -61,3 +61,11 @@ for i in range (len(carre_non_mag)) :
     for j in range (len(carre_non_mag[i])) :
         print (carre_non_mag[i][j], end= " ")
     print ()
+
+#Exercice 4
+def afficheCarre(carre):
+    """ Affiche la liste à 2 dimensions carre comme un carré"""
+    pass
+
+afficheCarre(carre_mag)
+afficheCarre(carre_pas_mag)
