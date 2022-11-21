@@ -69,3 +69,44 @@ def afficheCarre(carre):
 
 afficheCarre(carre_mag)
 afficheCarre(carre_pas_mag)
+
+#Exercice 5
+def testLignesEgales(carre):
+    """ Renvoie la somme des éléments d'une ligne de la liste 2D carre si toutes les lignes ont la même somme, et -1 sinon """
+    pass
+
+print(testLignesEgales(carre_mag))
+print(testLignesEgales(carre_pas_mag))
+
+#Exercice 6
+def testColonnesEgales(carre):
+    """ Renvoie la somme des éléments d'une colonne de la liste 2D carre si toutes les colonnes ont la même somme, et -1 sinon """
+    pass
+
+print(testColonnesEgales(carre_mag))
+print(testColonnesEgales(carre_pas_mag))
+
+#Exercice 7
+def testDiagonalesEgales(carre):
+    """ Renvoie la somme des éléments d'une diagonale de la liste 2D carre si les 2 diagonales ont la même somme, et -1 sinon """
+    pass
+
+print(testDiagonalesEgales(carre_mag))
+print(testDiagonalesEgales(carre_pas_mag))
+
+#Exercice 8
+def estCarreMagique(carre):
+    """ Renvoie True si c'est un carre magique et False sinon"""
+    pass
+
+print(estCarreMagique(carre_mag))
+print(estCarreMagique(carre_pas_mag))
+
+#Exercice 9
+def estNormal(carre):
+    """ Retourne True si contient toutes les valeurs de 1 à n^2 où n est la taille 
+        du carré, et False sinon """
+    pass
+
+print(estNormal(carre_mag))
+print(estNormal(carre_pas_mag))
