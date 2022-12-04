@@ -1,13 +1,11 @@
-#
 def tempsEnSecondes(temps):
     """ Renvoie la valeur en seconde de temps donné comme jour, heure, minute, seconde."""
     return temps[0] * 24 * 3600 + temps[1] * 3600 + temps[2] * 60 + temps[3]
 
 temps = (3,23,1,34)
 print (type(temps))
-print (tempsEnSeconde(temps))
+print (tempsEnSecondes(temps))
 
-#
 def secondeEnTemps(secondes):
     """Renvoie le temps (jour, heure, minute, seconde) qui correspond au nombre de seconde passé en argument"""
     jours = secondes // (24*3600)
@@ -19,7 +17,6 @@ def secondeEnTemps(secondes):
 temps = secondeEnTemps(100000)
 print (temps[0], "jours", temps[1], "heures", temps[2], "minutes", temps[3], "secondes")
 
-#
 def affichepluriel(mots,nb) :
     if nb > 0 :
       print ("", nb, mots, end = "")
@@ -34,7 +31,6 @@ def afficheTemps(temps) :
 
 afficheTemps((1,0,14,23))
 
-#
 def demandeTemps():
     j = -1
     h = -1
@@ -52,19 +48,16 @@ def demandeTemps():
 
 afficheTemps(demandeTemps())
 
-#
 def sommeTemps(temps1, temps2):
-  return secondeenTemps(tempsenSeconde) \ (temps1) + tempsEnSeconde(temps2)
+  return secondeEnTemps(tempsEnSecondes / temps1 + tempsEnSecondes(temps2))
 
 sommeTemps ((2,3,4,25), (5,22,57,1))
 
-#
 def proportionTemps(temps,proportion) :
-  return secondeenTemps ((TempsenSeconde(temps)*proportion))
-afficheTemps (proportionTemps((2,0,36,0),0,2))
-afficheTemps (proportionTemps(proportion = 0,2, temps = (2,0,36,0)))
+  return secondeEnTemps ((tempsEnSecondes(temps)*proportion))
+afficheTemps(proportionTemps((2,0,36,0),0.2))
+afficheTemps(proportionTemps(proportion = 0.2, temps = (2,0,36,0)))
 
-#
 import time
 def tempsEnDate(temps):
     a = 1970 + temps[0] // 365 # pour avoir les années
@@ -80,3 +73,45 @@ temps = secondeEnTemps(1000000000)
 afficheTemps(temps)
 afficheDate(tempsEnDate(temps))
 afficheDate()
+
+def estbissextile (annee):
+  return annee % 4 == 0 and (annee % 100 != 0 or annee % 400 == 0) #Pour savoir si une année est bissextile
+
+def bissextile (jour):
+  annee = 1970
+  while jour >= 365 :
+    if estbissextile (annee):
+      print ("l'année" + str(annee) + "est bissextile")
+      jour -= 366
+    else:
+      jour += 365
+    annee += 1
+
+bissextile(20000)
+
+def estbissextile (annee):
+  return annee % 4 == 0 and (annee % 100 != 0 or annee % 400 == 0) #Pour savoir si une année est bissextile
+
+def bissextile (jour):
+  annee = 1970
+  i = 0
+  while jour >= 365 :
+    if estbissextile (annee):
+      print ("l'année" + str(annee) + "est bissextile")
+      i += 1
+      jour -= 366
+    else:
+      jour += 365
+    annee += 1
+  return i
+bissextile(20000)
+
+def temps(temps):
+  jour,heures,minutes,secondes = temps
+  jour = jour - nombrebissextile(jour)
+  temps_modif = (jour,heures,minutes,secondes)
+  return tempsEndate (temps_modif)
+
+temps = secondeEnTemps(1000000000)
+afficheTemps(temps)
+afficheDate(tempsEnDateBisextile(temps))
