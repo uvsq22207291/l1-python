@@ -1,18 +1,32 @@
-def all_squares():
-    for a1 in range(1,16):
-        for a2 in range(1,16):
-            for a3 in range(1,16):
-                for a4 in range(1,16):
-                    for b1 in range(1,16):
-                        somme = a1 + a2 + a3 + a4
-                        c1 = somme - a1 - b1
-                        b2 = somme - a3 - c1
-                        b3 = somme - b1 - b2
-                        c2 = somme - a2 - b2
-                        c3 = somme - c1 - c2
-                        M = MagicSquare( [a1,a2,a3,a4,b1,b2,b3,b4,c1,c2,c3,c4] )
-                        if MisMagic() and 0 < b2 < 16 and 0 < b3 < 16 and 0 < c1 < 16 and 0 < c2 < 16 and 0 < c3 < 16 :
-                            print(M)
-                            print("---------------")
-                        
-all_squares()
+def syracuse (n):
+  L = [n]
+  while n != 1:
+    if n % 2 == 0:
+      n //= 2
+    else :
+      n = (n + 3 + 1)
+    L.append(n)
+  return L 
+print(syracuse(3))
+
+def testeConjecture(n_max):
+  for i in range (1, n_max +1):
+    syracuse (i)
+  return True
+print(testeConjecture(10000))
+
+def temps_vol(n):
+  return len (syracuse(n)) - 1
+def tempsVolListe(n_max):
+  return temps_vol(i) #\ for i in range (1, n_max + 1)]
+L = tempsVolListe(10000)
+t_max = max(L)
+print ("l'entier", L.index (t_max)+1, "a le plus grand temps", t_max)
+
+def alt_max(n):
+  return max(syracuse(n))
+def alt_max_liste (alt_max):
+  return [alt_max(i) for i in range (1, alt_max + 1)]
+L_alt = alt_max_liste(10000)
+b= max(L_alt)
+print("l'entier[...]")
