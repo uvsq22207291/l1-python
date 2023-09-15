@@ -10,19 +10,21 @@ Si vous utilisez le cartable numérique, vous devez suivre la courte procédure 
 Toutes les manipulations de cette section sont à effectuer dans Visual Studio Code.
 Il faut donc lancer VSCode et ouvrir le répertoire local du projet.
 
-### Récupérer les mises à jour à partir de `github`
-Il est utile à chaque début de session de travail de rappatrier les éventuelles modifications se trouvant sur votre compte `github`.
-Ce cas peut se produire si vous avez travaillé sur le projet sur une machine et que vous continuiez depuis une autre.
-C'est également nécessaire en travaillant à plusieurs sur un projet.
-
-1. Cliquer sur l'icone en forme de graphe à 3 noeuds à gauche de l'écran (*Source Control* ou *Ctrl+Shift+G*)
-1. Cliquer sur "..." (*Views and more Actions...*) en haut à gauche de *SOURCE CONTROL*
-1. Sélectionner *Pull, Push* et enfin *Sync*
+> ⚠️ **_Utilisation avancée (si vous utilisez _git/github_)_**
+> ### Récupérer les mises à jour à partir de `github`
+> Il est utile à chaque début de session de travail de rappatrier les éventuelles modifications se trouvant sur votre compte `github`.
+> Ce cas peut se produire si vous avez travaillé sur le projet sur une machine et que vous continuiez depuis une autre.
+> C'est également nécessaire en travaillant à plusieurs sur un projet.
+> 
+> 1. Cliquer sur l'icone en forme de graphe à 3 noeuds à gauche de l'écran (*Source Control* ou *Ctrl+Shift+G*)
+> 1. Cliquer sur "..." (*Views and more Actions...*) en haut à gauche de *SOURCE CONTROL*
+> 1. Sélectionner *Pull, Push* et enfin *Sync*
 
 ### Vérifier l'environnement utilisé
 1. Dans la liste "EXPLORER" à gauche de l'écran, sélectionner le fichier "examples/hello/hello.py"
-1. Vérifier dans la barre d'état en bas à gauche que l'environnement est bien "Python 3.9.X XX-bit ('l1-python': conda)"
-    * si ce n'est pas le cas, sélectionner l'interpréteur Python 3.9 dans l'environnement l1-python "Python 3.9.X XX-bit ('l1-python': conda)" en cliquant en bas à gauche dans la barre d'état ou *Ctrl+Shift+P* puis sélectionner "Python: Select Interpreter")
+1. Vérifier dans la barre d'état en bas à gauche que l'environnement est bien "Python 3.X"
+    * si ce n'est pas le cas, sélectionner l'interpréteur approprié en cliquant en bas à gauche dans la barre d'état ou *Ctrl+Shift+P* puis sélectionner "Python: Select Interpreter")
+    * ⚠️ **_Utilisation avancée (si vous utilisez un environnement virtuel)_** L'interpréteur à sélectionner est celui de l'environnement _l1-python_ (par exemple "Python 3.9.X XX-bit ('l1-python': conda)")
 
 ### Exécuter un programme
 * Hello
@@ -50,18 +52,19 @@ C'est également nécessaire en travaillant à plusieurs sur un projet.
 ### Faire un exercice dans un notebook
 Il suffit pour cela d'ouvrir le notebook contenant l'exercice (par exemple [exercises\exjupyter\exjupyter.ipynb](exercises\exjupyter\exjupyter.ipynb)) et de compléter directement le notebook. A la première ouverture d'un notebook, il faut cliquer sur "Select Kernel" en haut à droite de la fenêtre et choisir "Python 3.9.X XX-bit ('l1-python': conda)".
 
-### Sauvegarder les changements sur son compte `github` (via l'interface graphique VSCode)
-Cette procédure vous permettra de conserver vos modifications entre les séances en les sauvegardant sur `github`.
-
-1. Cliquer sur l'icone en forme de graphe à 3 noeuds à gauche de l'écran (*Source Control* ou *Ctrl+Shift+G*)
-    * La liste des fichiers modifiés (*M* en fin de ligne) ou ajoutés (*U* en fin de ligne) s'affiche
-1. Cliquer sur le *+* (*Stage Changes*) en fin de ligne pour chaque fichier *modifiés ou ajoutés* à sauvegarder sur `github`
-1. Taper un message de *commit* pour indiquer ce qui a changé (par exemple "Termine l'exercice 2") dans la zone de texte à gauche juste au dessus de *Staged Changes*
-1. Cliquer sur l'icone "✔" (*Commit*) en haut à gauche à côté de *SOURCE CONTROL*
-1. Envoyer les *commits* vers `github`
-    1. cliquer sur "..." (*Views and more Actions...*) en haut à gauche de *SOURCE CONTROL*
-    1. sélectionner *Pull, Push* et enfin *Sync*
-    1. vérifier que les changements ont bien été pris en compte sur votre compte github
+> ⚠️ **_Utilisation avancée (si vous utilisez _git/github_)_**
+> ### Sauvegarder les changements sur son compte `github` (via l'interface graphique VSCode)
+> Cette procédure vous permettra de conserver vos modifications entre les séances en les sauvegardant sur `github`.
+> 
+> 1. Cliquer sur l'icone en forme de graphe à 3 noeuds à gauche de l'écran (*Source Control* ou *Ctrl+Shift+G*)
+>     * La liste des fichiers modifiés (*M* en fin de ligne) ou ajoutés (*U* en fin de ligne) s'affiche
+> 1. Cliquer sur le *+* (*Stage Changes*) en fin de ligne pour chaque fichier *modifiés ou ajoutés* à sauvegarder sur `github`
+> 1. Taper un message de *commit* pour indiquer ce qui a changé (par exemple "Termine l'exercice 2") dans la zone de texte à gauche juste au dessus de *Staged Changes*
+> 1. Cliquer sur l'icone "✔" (*Commit*) en haut à gauche à côté de *SOURCE CONTROL*
+> 1. Envoyer les *commits* vers `github`
+>     1. cliquer sur "..." (*Views and more Actions...*) en haut à gauche de *SOURCE CONTROL*
+>     1. sélectionner *Pull, Push* et enfin *Sync*
+>     1. vérifier que les changements ont bien été pris en compte sur votre compte github
 
 ### Remarque
 * Pour ouvrir un *REPL Python* dans l'environnement courant, il faut ouvrir la *Command Palette* (`Ctrl+Shift+P`), puis taper *Python: Start REPL*.
@@ -75,37 +78,39 @@ Taper dans le terminal :
 git pull origin master
 ```
 
-#### Intégrer les mises à jour du projet original
-Cette étape n'est pas à effectuer à chaque fois mais quand un enseignant vous le demande.
-Elle va permettre de mettre à jour votre copie locale du projet à partir du dépôt `github` original.
+> ⚠️ **_Utilisation avancée (si vous utilisez _git/github_)_**
+> #### Intégrer les mises à jour du projet original
+> Cette étape n'est pas à effectuer à chaque fois mais quand un enseignant vous le demande.
+> Elle va permettre de mettre à jour votre copie locale du projet à partir du dépôt `github` original.
+> 
+> 1. Créer un lien nommée `upstream` vers le dépôt d'origine
+>     ```bash
+>     git remote add upstream https://github.com/uvsq-info/l1-python
+>     ```
+> 1. Récupérer les modifications de ce dépôt
+>     ```bash
+>     git fetch upstream
+>     ```
+> 1. Se placer localement sur la *branche principale*
+>     ```bash
+>     git checkout master
+>     ```
+> 1. Intégrer la branche principale de `upstream` à la branche locale
+>     ```bash
+>     git merge -Xtheirs upstream/master
+>     ```
+> 1. Envoyer les modifications vers votre dépôt `github`
+>     ```bash
+>     git push -f origin master
+>     ```
 
-1. Créer un lien nommée `upstream` vers le dépôt d'origine
-    ```bash
-    git remote add upstream https://github.com/uvsq-info/l1-python
-    ```
-1. Récupérer les modifications de ce dépôt
-    ```bash
-    git fetch upstream
-    ```
-1. Se placer localement sur la *branche principale*
-    ```bash
-    git checkout master
-    ```
-1. Intégrer la branche principale de `upstream` à la branche locale
-    ```bash
-    git merge -Xtheirs upstream/master
-    ```
-1. Envoyer les modifications vers votre dépôt `github`
-    ```bash
-    git push -f origin master
-    ```
-
-### Activation de l'environnement
-Il est nécessaire d'activer l'environnement du projet pour avoir accès à la version adéquat de Python ainsi qu'à toutes les bibliothèques.
-
-```bash
-conda activate l1-python
-```
+> ⚠️ **_Utilisation avancée (si vous utilisez un environnement virtuel)_**
+> ### Activation de l'environnement
+> Il est nécessaire d'activer l'environnement du projet pour avoir accès à la version adéquat de Python ainsi qu'à toutes les bibliothèques.
+> 
+> ```bash
+> conda activate l1-python
+> ```
 
 ### Exécuter un programme
 * Hello
@@ -144,26 +149,27 @@ flake8 examples/fizzbuzz/fizzbuzz.py
 mypy examples/fizzbuzz/fizzbuzz.py
 ```
 
-### Sauvegarder les changements sur son compte `github` (via le terminal)
-Cette procédure vous permettra de conserver vos modifications entre les séances en les sauvegardant sur `github`.
-
-1. Afficher la liste des fichiers modifiés ou ajoutés
-    ```bash
-    git status
-    ```
-1. Marquer chaque fichier *modifiés ou ajoutés* comme à sauvegarder sur `github`
-    ```bash
-    git add hello.py # à faire pour chaque fichier à sauver
-    ```
-1. Valider les changements à sauvegarder en créant un nouveau *commit* avec un message d'explication
-    ```bash
-    git commit -m "Termine l'exercice 2"
-    ```
-1. Récupérer les éventuelles mises à jour puis envoyer les *commits* vers `github`
-    ```bash
-    git pull origin master # mises à jour en provenance de github
-    git push -u origin master # sauvegarde des modifications locales
-    ```
+> ⚠️ **_Utilisation avancée (si vous utilisez _git/github_)_**
+> ### Sauvegarder les changements sur son compte `github` (via le terminal)
+> Cette procédure vous permettra de conserver vos modifications entre les séances en les sauvegardant sur `github`.
+> 
+> 1. Afficher la liste des fichiers modifiés ou ajoutés
+>     ```bash
+>     git status
+>     ```
+> 1. Marquer chaque fichier *modifiés ou ajoutés* comme à sauvegarder sur `github`
+>     ```bash
+>     git add hello.py # à faire pour chaque fichier à sauver
+>     ```
+> 1. Valider les changements à sauvegarder en créant un nouveau *commit* avec un message d'explication
+>     ```bash
+>     git commit -m "Termine l'exercice 2"
+>     ```
+> 1. Récupérer les éventuelles mises à jour puis envoyer les *commits* vers `github`
+>     ```bash
+>     git pull origin master # mises à jour en provenance de github
+>     git push -u origin master # sauvegarde des modifications locales
+>     ```
 
 ## Références
 ### Python

@@ -4,14 +4,15 @@
 Python est un langage de programmation *interprété*.
 Pour exécuter un programme écrit dans ce langage, il faut disposer d'un *interpréteur Python* ainsi que de certaines bibliothèques installées sur la machine.
 
-Nous utiliserons la [version 3.9](https://docs.python.org/fr/3.9/whatsnew/3.9.html) de Python.
-En 2021, c'est la version la plus récente du langage disponible sur la plupart des architectures de machine.
+Nous utiliserons la version 3 de Python.
+En 2023, la [version 3.11](https://docs.python.org/fr/3.11/whatsnew/3.11.html) est la plus récente disponible sur la plupart des architectures de machine.
 
 Pour simplifier l'installation des outils nécessaires, nous allons utiliser une *distribution Python*.
+Cette dernière regroupe des outils (interpréteur Python, gestionnaire de paquets, …) et des bibliothèques (numpy, …).
 Il en existe plusieurs mais nous nous appuyerons sur la distribution [Miniconda](https://docs.conda.io/en/latest/miniconda.html) qui est une version allégée de la distribution [Anaconda](https://www.anaconda.com/products/individual).
 
 ### Installer la distribution **Miniconda**
-1. Télécharger la version de [Miniconda](https://docs.conda.io/en/latest/miniconda.html) pour **Python 3.9** et **adaptée à votre système**. La plupart des machines ont des processeurs de 64-bits, si vous avez sur 32-bits, téléchargez la version adaptée.
+1. Télécharger la version de [Miniconda](https://docs.conda.io/en/latest/miniconda.html) pour **Python 3.X** et **adaptée à votre système**. La plupart des machines ont des processeurs de 64-bits.
     * pour Windows, télécharger [Miniconda3 Windows 64-bit](https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe)
     * pour Mac OS, télécharger [Miniconda3 MacOSX 64-bit pkg](https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.pkg)
     * pour Linux, télécharger [Miniconda3 Linux 64-bit](https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh)
@@ -20,7 +21,7 @@ Il en existe plusieurs mais nous nous appuyerons sur la distribution [Miniconda]
       - accepter la licence ("I Agree")
       - "Install for", "Just Me (recommended)" ("Next")
       - "Choose Install Location", Si votre nom d'utilisateur Windows contient des accents (par exemple C:\Users\Théo) **choisissez un autre répertoire d'installation** (par exemple C:\Users\Public), ("Next")
-      - "Register Miniconda3 as my default Python 3.9", ("Install")
+      - "Register Miniconda3 as my default Python 3.X", ("Install")
       - "Installation Complete", ("Next")
       - "Completing Miniconda3...", **décocher tout** ("Finish")
     * pour Mac OS, double-cliquer sur le fichier `.pkg` téléchargé précédemment puis accepter les choix par défaut
@@ -89,7 +90,7 @@ Il en existe plusieurs mais nous nous appuyerons sur la distribution [Miniconda]
         ```bash
         python -V
         ```
-        qui doit afficher (*le dernier chiffre peut varier*) :
+        qui doit afficher (*les derniers nombres peuvent varier*) :
         ```
         Python 3.9.5
         ```
@@ -112,115 +113,15 @@ Il est un bon compromis entre fonctionnalités et complexité tout en étant dis
 
 Nous ne détaillons pas ici la procédure d'installation car elle ne présente pas de difficulté majeure.
 
-## Installer un *système de gestion de versions*
-Un *système de gestion de versions* (*Version Control System* ou *VCS* en anglais) est un logiciel qui conserve une trace de chaque modification importante effectuée sur un ensemble de documents.
-Dans le contexte de la programmation, il sauvegarde et suit les modifications d'un ensemble de fichiers sources.
+> ⚠️ **_Installation avancée (optionelle)_** Si vous souhaitez utiliser _git/github_, suivez les étapes d'installation se trouvant dans [INSTALL_ADV.md](INSTALL_ADV.md#install_git).
 
-L'outil que nous allons utiliser pour cela se nomme [`git`](https://git-scm.com/).
-C'est à l'heure actuelle (en 2020) le logiciel open source le plus utilisé pour cette tâche.
+## Récupérer le projet localement
+1. Télécharger, avec votre navigateur, une archive du l'environnement de TD à partir de https://github.com/uvsq-info/l1-python.
+    * pour cela, cliquer sur le bouton vert _<> Code_ et sélectionner _Download ZIP_
+1. Décompresser l'archive dans le répertoire de votre choix.
+1. Ouvrir ensuite dans VSCode le répertoire créé ci-dessus
 
-L'outil `git` gérera votre projet localement sur une machine mais il est très utile de faire héberger son projet sur le web.
-C'est ce que propose la plateforme [github](https://github.com/).
-Ce service offre la possibilité de sauvegarder son projet dans le cloud afin de pouvoir le récupérer de n'importe quelle machine connectée.
-
-### Création d'un compte `github`
-À l'adresse https://github.com/join, créer un compte en précisant :
-* le nom d'utilisateur (*username*) `uvsqXXXXXXXX` en remplaçant `XXXXXXXX` par votre numéro d'étudiant,
-* l'adresse mail (*Email address*) `prenom.nom@ens.uvsq.fr`,
-* et un mot de passe (*Password*).
-
-Il faut ensuite consulter les mails à cette adresse pour confirmer l'adresse d'inscription.
-
-### Copier le projet dans son espace `github` personnel
-> Un "projet" sous `git` et `github` se nomme un *dépôt* (*repository* en anglais).
-> Attention car la notion de projet (*project*) sous `github` est différente.
-
-Le dépôt `git` contenant l'ensemble du projet n'est pas modifiable par tout le monde.
-Pour pouvoir faire des changements dessus, il faut donc d'abord le *copier* dans votre espace personnel.
-Sous `github`, cette opétation se nomme un **fork** et est utilisée pour copier un dépôt entre deux espaces utilisateurs.
-
-La procédure pour cela est la suivante :
-1. se rendre sur la page `github` du dépôt à copier (https://github.com/uvsq-info/l1-python dans notre cas),
-1. cliquer sur le bouton *Fork* en haut à droite de l'écran
-1. sélectionner votre espace personnel comme destination du fork
-
-Vous disposez maintenant d'une copie personnelle du dépôt avec une URL qui devrait ressembler à https://github.com/uvsqXXXXXXXX/l1-python.
-
-### Installer `git`
-L'étape suivante consiste à récupérer une copie locale du projet.
-Nous utiliserons pour cela l'interface `git` intégrée à l'éditeur de texte.
-Cependant, cette dernière s'appuie sur l'outil en ligne de commande `git` que nous allons installer maintenant.
-
-#### Sous Windows
-1. Télécharger [git sous Windows](https://git-scm.com/download/win)
-1. Double-cliquer sur le fichier téléchargé pour lancer l'installation
-1. Conserver les choix par défaut proposés lors de l'installation **sauf pour les étapes en gras ci-dessous** :
-    - accepter la licence ("Next")
-    - "Select Destination Location", ("Next")
-    - "Select Components", ("Next")
-    - "Select Start Menu Folder", ("Next")
-    - "Choosing the default editor used by Git", **choisir "Use Visual Studio Code as Git's default editor"** ("Next")
-    - "Let Git decide" ("Next")
-    - "Adjusting your PATH environment", déjà sélectionné "Git from the command line and also from 3rd-party software" ("Next")
-    - "Choosing the SSH executable", déjà sélectionné "Use OpenSSH" ("Next")
-    - "Choosing HTTPS transport backend", déjà sélectionné "Use the OpenSSL library" ("Next")
-    - "Configuring the line ending conversions", déjà sélectionné "Checkout Windows-style, commit Unix-style line endings" ("Next")
-    - "Configuring the terminal emulator to use with Git Bash", déjà sélectionné "Use MinTTY (the default terminal of MSYS2)" ("Next")
-    - "Choose the default behavior of 'git pull'", "Default (fast-forward or merge)" ("Next")
-    - "Choose a credentiel helper", **choisir "None"**("Next")
-    - "Configuring extra options", "Enable file system caching" (déjà sélectionné) et "Enable symbolic links" ("Next")
-    - "Configuring experimental options", rien n'est sélectionné ("Install")
-    - "Completing the Git Setup Wizard", **décocher tout** ("Next")
-
-#### Sous Mac OS
-1. Installer [Homebrew](https://brew.sh/)
-1. Dans un terminal, taper :
-    ```bash
-    brew install git
-    ```
-
-Une alternative pourrait être d'installer `git` par l'intermédiaire de `conda` ([package git pour conda](https://anaconda.org/conda-forge/git)).
-
-#### Sous Linux
-L'installation de `git` est très simple mais dépend de la distribution Linux installée.
-Par exemple, avec une distribution `debian`, il suffit de taper dans un terminal :
-```bash
-sudo apt update
-sudo apt install git
-```
-
-Pour trouver la commande correspondant à votre système, rendez-vous sur la page [Download for Linux and Unix](https://git-scm.com/download/linux) et choisissez les commandes adéquates.
-
-### Finaliser et vérifier l'installation
-1. Sous Windows, ouvrir un *Git Bash*; sous Mac OS et Linux, ouvrir un terminal et taper :
-    ```bash
-    git --version
-    ```
-    qui devrait afficher (les deux derniers numéros peuvent être différents) :
-    ```bash
-    git version 2.33.0
-    ```
-1. Dans le même terminal, taper (**en substituant votre prénom et votre nom**) :
-    ```bash
-    git config --global user.name "Prénom NOM"
-    git config --global user.email "prenom.nom@ens.uvsq.fr"
-    git config --global color.ui auto
-    ```
-1. Fermer le terminal
-
-## Récupérer et initialiser le projet localement
-Cette étape va consister à créer sur votre machine une copie du dépôt `github`.
-Nous utiliserons pour cela Visual Studio Code (abrégé en VSCode dans la suite).
-Cela nous permettra également d'en finaliser l'installation en ajoutant les extensions utiles pour le développement logiciel en Python.
-
-### Création d'une copie locale du projet
-1. Lancer VSCode
-1. Cliquer sur l'icone en forme de graphe à 3 noeuds à gauche de l'écran (*Source Control* ou *Ctrl+Shift+G*)
-1. Sélectionner "Clone from Github"
-1. Cliquez sur "Allow" dans la boite de dialogue puis accepter les différents choix proposés dans le navigateur ou dans une boite de dialogue VSCode (le navigateur doit être celui où le fork a été fait dans votre espace personnel github). 
-1. Sélectionner le dépôt "uvsqXXXXXXXX/l1-python" dans la liste déroulante puis choisissez l'emplacement local du projet
-1. Ouvrir ensuite le répertoire créé ci-dessus
-
+## Finaliser l'installation de Visual Studio Code
 ### Choisir le *shell* de commande par défaut
 Cette étape précise à VSCode quel *shell* utiliser pour le terminal.
 
@@ -230,50 +131,14 @@ Cette étape précise à VSCode quel *shell* utiliser pour le terminal.
     * "Command Prompt" sous Windows
     * "bash" sous Mac OS ou Linux
 
-### Créer l'environnement Python du projet
-Pour isoler l'environnement du projet d'éventuelles autres versions de Python ou de bibliothèques, nous allons créer un environnement `conda` spécifique.
-
-* Sous Windows, `conda` n'est pas accessible dans le "Command Prompt". Pour palier ce problème, faire *Ctrl ,* (Ctrl et virgule en même temps), rechercher "terminal.integrated.profiles.windows" et cliquer sur "Edit in settings.json".
-    Supprimer l'intégralité du contenu du fichier et copier-coller ceci à la place:
-    ```json
-    {
-        "terminal.integrated.profiles.windows": {
-            "Command Prompt": {
-                "path": [
-                    "${env:windir}\\Sysnative\\cmd.exe",
-                    "${env:windir}\\System32\\cmd.exe"
-                ],
-                "args":["/K", "C:\\Users\\${env:USERNAME}\\miniconda3\\Scripts\\activate.bat C:\\Users\\${env:USERNAME}\\miniconda3"],
-                "icon": "terminal-cmd"
-            }
-        },
-        "terminal.integrated.defaultProfile.windows": "Command Prompt"
-    }
-    ```
-
-    Ce qui revient à taper:
-    ```
-    [« /k », « C:\\users\\moi\\miniconda3\\Scripts\\activate.bat C: C:\\users\\moi\\miniconda3] 
-    ```
-    dans le « args » du bloc « Command Prompt »
-    Si le répertoire par défaut pour installer miniconda n'a pas été choisi, adapter le chemin d'installation.
-    Enfin, utiliser *File/Save* ou Ctrl+S pour sauvegarder vos modifications puis fermer l'onglet settings.json.
-1. Sous Windows, Mac et Linux s'assurer que le répertoire du projet est ouvert dans VSCode puis ouvrir un terminal (menu Terminal/New Terminal ou View/Terminal).
-    Taper (Il faut garder sa connexion internet pendant la création de l'environnement)
-    ```bash
-    conda env create
-    conda activate l1-python
-    ```
-1. Fermer le terminal en tapant
-    ```bash
-    exit
-    ```
+> ⚠️ **_Installation avancée (optionelle)_** Si vous souhaitez isoler l'environnement Python avec un environnement virtuel, suivez les étapes d'installation se trouvant dans [INSTALL_ADV.md](INSTALL_ADV.md#install_virt).
 
 ### Finaliser l'installation de VSCode
 1. Dans la liste "EXPLORER" à gauche de l'écran, sélectionner le fichier "examples/hello/hello.py"
     * accepter l'installation de l'extension [Microsoft Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-1. Sélectionner l'interpréteur Python 3.9 dans l'environnement l1-python "Python 3.9.X XX-bit ('l1-python': conda)"
+1. Sélectionner l'interpréteur Python 3.X
     * cliquer en bas à gauche dans la barre d'état ou *Ctrl+Shift+P* puis sélectionner "Python: Select Interpreter"
+    * si vous avez créé un environnement virtuel, le sélectionner (par exemple l1-python "Python 3.9.X XX-bit ('l1-python': conda)")
 1. Activer les outils de vérification statique (*Linters*)
     1. Ouvrir la palette de commande (*Ctrl+Shift+P*)
     1. Sélectionner la commande "Python: Select Linter"
@@ -283,18 +148,8 @@ Pour isoler l'environnement du projet d'éventuelles autres versions de Python o
 Pour utiliser le projet, consulter le [README.md](README.md) du projet.
 
 ## Dépannage des problèmes d'installation
-### `conda` n'est pas accessible dans le terminal VSCode
-Ce problème survient sur une plateforme Windows lors de l'étape "Créer l'environnement Python du projet".
-La solution suggérée ci-dessus dans le guide d'installation est délicate à mettre en œuvre.
-
-
-Une alternative consiste à :
-1. ouvrir un *anaconda prompt* (hors de VSCode)
-1. se placer dans le répertoire du projet
-1. taper les commandes dans ce terminal (`conda env create`, ...)
-
 ### Le *shell* est `zsh`
-Le dernier MacOS (nommé Catalina depuis 2019) n'utilise plus le shell `bash` mais `zsh`. Cela pose des soucis lors de l'installation de miniconda.
+Les MacOS récent (depuis Catalina en 2019) n'utilise plus le shell `bash` mais `zsh`. Cela pose des soucis lors de l'installation de miniconda.
 Une solution est décrite dans [Installing miniconda with zsh](https://stackoverflow.com/questions/50336405/installing-miniconda-with-zsh) :
 1. Modifier la variable d'environnement `PATH` dans le `~/.zshrc` :
     ```bash
